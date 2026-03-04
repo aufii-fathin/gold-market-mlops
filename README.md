@@ -19,6 +19,7 @@ Production-ready MLOps system for forecasting gold prices and monitoring market 
 - [Machine Learning Tasks](#machine-learning-tasks)
 - [System Architecture](#system-architecture)
 - [Project Structure](#project-structure)
+- [Codespaces](#running-the-project-with-github-codespaces)
 - [Tech Stack](#tech-stack)
 - [License](#license)
 
@@ -43,8 +44,7 @@ Key capabilities:
 
 ### 1. Time-Series Regression
 
-- Objective: Forecast gold prices 7 days ahead  
-- Models: XGBoost / LightGBM  
+- Objective: Forecast gold prices 7 days ahead    
 - Validation: Time-based split & rolling window backtesting  
 - Metrics: MAE, RMSE, MAPE, Mean Directional Accuracy  
 
@@ -104,6 +104,14 @@ gold-market-mlops/
 ├── tests/
 └── requirements.txt
 ```
+## Running the Project with GitHub Codespaces
+
+This project can be executed directly in a cloud development environment using **GitHub Codespaces**, allowing users to run the full MLOps pipeline without installing dependencies locally.
+1. Go to the repository on GitHub.
+2. Click **Code → Codespaces → Create Codespace on main**.
+3. Wait until the development environment finishes initializing.
+
+GitHub Codespaces will automatically provide a cloud-based development environment with the necessary tools.
 
 ## Tech Stack
 
