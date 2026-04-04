@@ -20,6 +20,7 @@ Production-ready MLOps system for forecasting gold prices and monitoring market 
 - [System Architecture](#system-architecture)
 - [Project Structure](#project-structure)
 - [Codespaces](#running-the-project-with-github-codespaces)
+- [Data Ingestion & Preprocessing](#data-ingestion--preprocessing)
 - [Tech Stack](#tech-stack)
 - [License](#license)
 
@@ -112,6 +113,78 @@ This project can be executed directly in a cloud development environment using *
 3. Wait until the development environment finishes initializing.
 
 GitHub Codespaces will automatically provide a cloud-based development environment with the necessary tools.
+
+## Data Ingestion & Preprocessing
+
+This project includes an automated data pipeline for collecting and preprocessing financial time-series data to support continual learning.
+
+### 1. Data Ingestion
+---
+To fetch the latest raw data (gold, oil, and macroeconomic indicators):
+
+```bash
+python src/data/ingestion.py
+```
+
+This will generate raw datasets in:
+
+```
+data/raw/
+```
+
+Generated files:
+
+* gold_prices.csv
+* oil_prices.csv
+* macro_fred.csv
+
+### 2. Data Preprocessing
+---
+To preprocess each dataset individually:
+
+```bash
+python src/data/preprocess_gold.py
+python src/data/preprocess_oil.py
+python src/data/preprocess_fred.py
+```
+
+To merge all processed datasets:
+
+```bash
+python src/data/preprocess_merge.py
+```
+
+Processed data will be stored in:
+
+```
+data/processed/
+```
+
+### 3. Run Full Data Pipeline (Recommended)
+---
+To execute the full pipeline (ingestion → preprocessing → merging):
+
+```bash
+python src/data/data_pipeline.py
+```
+
+This script will:
+
+1. Fetch latest data
+2. Generate features for each dataset
+3. Merge all datasets into a unified dataset
+
+Final output:
+
+```
+data/processed/market_dataset.csv
+```
+
+### Notes
+---
+- The pipeline can be executed repeatedly to simulate continual learning
+- Raw data is stored separately from processed data
+- Make sure to set environment variable FRED_API_KEY before running ingestion
 
 ## Tech Stack
 
