@@ -37,8 +37,10 @@ def main():
     # MODEL DEFINITIONS + PARAMS
     model_defs = {
         "Linear Regression": {
-            "model": LinearRegression(),
-            "params": {}
+            "model": LinearRegression(fit_intercept=False),
+            "params": {
+                "fit_intercept": False
+            }
         },
         "Random Forest": {
             "model": RandomForestRegressor(

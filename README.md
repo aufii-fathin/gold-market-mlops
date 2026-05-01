@@ -213,6 +213,29 @@ git commit -m "feat(data): update raw datasets with new records"
 dvc diff HEAD~1 HEAD
 ```
 
+## Model Versioning & Active Model for Inference
+
+This project uses MLflow Model Registry to manage model versioning and deployment readiness.
+
+### Registered Model
+
+- **Model Name:** gold-price-model  
+- **Current Production Version:** Version 2  
+- **Staging Version:** Version 1  
+
+### Active Model for Inference
+
+The model currently used for inference is:
+
+```bash
+models:/gold-price-model@production
+```
+
+### Reason for Selection
+
+Version 2 is promoted to production because it represents the most recent trained model with updated configuration (Linear Regression with modified parameters). This version reflects the latest improvements and is considered the most suitable for deployment.
+
+Version 1 is retained in the staging environment for comparison, testing, and rollback purposes if needed.
 
 ## Tech Stack
 
